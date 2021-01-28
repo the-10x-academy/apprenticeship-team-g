@@ -3,10 +3,14 @@ const express = require("express");
 const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
-
+const db=require("./config/moogose");
 const indexRouter = require("./routes/index");
 
 const app = express();
+
+const bodyParser = require("body-parser");
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
