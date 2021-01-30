@@ -16,18 +16,19 @@
     flex-direction: row;
 }
 
-.header img {  
+.logoo {  
     top: 25px;
     left: 200px;
     width: 64px;
     height: 64px;
-    margin-top: 5px;
+    margin-left: 200px;
+    margin-top: 15px;
     align-items: center;
     margin-bottom: 20px;
     opacity: 1;
   }
 
-.header p {
+.para {
     color:#006238;
     top:25px;
     left: 274px;
@@ -46,13 +47,14 @@
 }
 
 .sec_img{
-    top: 25px;
+    top: 20px;
     position: absolute;
     display: flex;
     align-items: center;
-    text-align: right;
-    left: 1672px;
-    margin-left:1000px;
+    padding-top: 20px;
+    
+    /*left: 1080px;*/
+    margin-left:1080px;
     background: transparent  0% 0% no-repeat padding-box;
     width: 48px;
     height: 48px;

@@ -19,4 +19,4 @@ class PostList extends React.Component{
     }
 
 }
-export default Post
+export default PostList

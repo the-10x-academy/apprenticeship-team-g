@@ -5,8 +5,8 @@ import img1 from "./img/camera.png"
 
 const Header = () => (
     <div className="header">
-      <img src={img} alt="logo" />
-      <p>Instaclone</p>
+      <img className="logoo" src={img} alt="logo" />
+      <p className="para">Instaclone</p>
         <img className="sec_img" src={img1} alt="cameralogo"/>
     </div>  
    
