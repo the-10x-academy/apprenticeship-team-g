@@ -10,7 +10,7 @@ class HomePage extends React.Component{
 			<div className='entry-container'>
 				<img src={mainImage} />
 				<div className='entry-name'>
-					<p className='entry-title'>10x Team G</p>
+					<p className='entry-title'>10x Team 7</p>
 					<button>Enter</button>
 				</div>
 				
