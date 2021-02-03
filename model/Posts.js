@@ -7,20 +7,24 @@ const postSchema = mongoose.Schema({
         required: true
     },
     likes:{
-        type:Number
+        type:Number,
+        required: true
     },
     content:{
         type: String,
         required:true
     },
     caption:{
-        type:String
+        type:String,
+        required: true
     },
     location:{
-        type:String
+        type:String,
+        required: true
     },
     postedAt:{
-        type:String
+        type:String,
+        required: true
     }
 });
 
