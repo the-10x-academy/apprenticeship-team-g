@@ -37,8 +37,8 @@ let storage = multer.diskStorage({
       cb(null, file.fieldname + '-' + Date.now())
     }
   })
-//statics
 
+//statics
 postSchema.statics.uploadedAvatar = multer({storage:storage}).single('content')
 postSchema.statics.avatarPath = POST_PATH;
 const Post = mongoose.model('Post',postSchema);
