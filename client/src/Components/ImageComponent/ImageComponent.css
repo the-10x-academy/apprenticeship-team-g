@@ -1,0 +1,14 @@
+.imagecompo {
+  top: 300px;
+  left: 600px;
+  width: 800px;
+  height: 400px;
+  background: transparent 0% 0% no-repeat padding-box;
+  border: 1px solid #707070;
+  opacity: 1;
+}
+
+.imageparent {
+  display: flex;
+  justify-content: center;
+}
