@@ -2,13 +2,12 @@ const express = require("express");
 const { post } = require("../app");
 const router = express.Router();
 
-/* const Post=require("../"); */ /* add the path to post schema model */
-
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
-	res.render("index", { title: "Express" });
+	res.render("satyam", { title: "Leenesh"});
 });
+router.use('/api',require('./api'))
 
 router.get("/post",function(req,res,next){
 	var post = Post.find();
