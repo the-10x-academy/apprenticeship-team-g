@@ -12,6 +12,7 @@ const Header = () => (
         <div className="cameraIcon">
         <img className="camera" src={img1} alt="cameralogo"/>
        </div>
+       
       </div>
 
     //<div className="header">
