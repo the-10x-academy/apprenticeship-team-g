@@ -3,11 +3,11 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./Components/HomePage/HomePage";
 import reportWebVitals from "./reportWebVitals";
-import Header from "./header";
+import Entry from './Components/HomePage/HomePage'
 
 ReactDOM.render(
 	<React.StrictMode>
-		<Header />   
+		<Entry />   
 	</React.StrictMode>,
 	document.getElementById("root"),
 );

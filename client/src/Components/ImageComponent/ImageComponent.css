@@ -4,11 +4,12 @@
   width: 800px;
   height: 400px;
   background: transparent 0% 0% no-repeat padding-box;
-  border: 1px solid #707070;
+  border: 3px solid green;
   opacity: 1;
+  margin: 0;
 }
 
 .imageparent {
   display: flex;
-  justify-content: center;
+  justify-content: center; 
 }

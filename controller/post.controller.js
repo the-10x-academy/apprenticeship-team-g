@@ -1,4 +1,4 @@
-const Post = require("../models/post.model");
+const Post = require("../model/Post");
 
 // create new post
 module.exports.createPost = (req, res, next) => {
@@ -28,6 +28,7 @@ module.exports.createPost = (req, res, next) => {
 module.exports.getPosts = (req, res, next) => {
   Post.find()
     .then((posts) => {
+      console.log(posts)
       res.status(200).json(posts);
     })
     .catch((error) => {
