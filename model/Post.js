@@ -5,27 +5,27 @@ const POST_PATH = '/uploads/images'
 const postSchema = mongoose.Schema({
     owner:{
         type:String,
-        required
+        required:true
     },
     location:{
         type:String,
-        required
+        required:true
     },
     content:{
         type:String,
-        required
+        required:true
     },
     date:{
         type:String,
-        required
+        required:true
     },
     likes:{
         type:Number,
-        required
+        required:true
     },
     caption:{
         type:String,
-        required
+        required:true
     }
 
 })

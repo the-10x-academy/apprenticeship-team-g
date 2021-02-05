@@ -1,5 +1,5 @@
 import React from 'react'
-import more_icon from '../../images/more_icon.svg'
+import more_icon from '../../img/more_icon.svg'
 import './post2.css'
 class PostDetailsTop extends React.Component{
     constructor(props){
@@ -10,13 +10,14 @@ class PostDetailsTop extends React.Component{
         }
     }
     render(){
-        return <div>
-            <div> 
-                <img className='more_icon' src = {more_icon} />
-            </div>
+        return <div className='Info-Container'>
+            
             <div className='container'>
                 <p className='name'>{this.state.name}</p>
                 <p className='location'>{this.state.location}</p>
+            </div>
+            <div> 
+                <img className='more_icon' src = {more_icon} />
             </div>
         </div>
     }

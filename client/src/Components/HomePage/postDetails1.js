@@ -1,6 +1,6 @@
 import React from 'react';
-import heart from '../../images/heart.png';
-import share from '../../images/share.png';
+import heart from '../../img/heart.png';
+import share from '../../img/share.png';
 import './post1.css'
 class PostDetails extends React.Component{
     constructor(props){
@@ -11,9 +11,9 @@ class PostDetails extends React.Component{
         }
     }
     render(){
-        return <div className='body'>
-            <div> 
-                <div>
+        return <div className='Bottom-Details-Container'>
+            <div className='icons-container'>
+                <div className='Like-Icons'>
                     <img className='heart' src = {heart}/>
                     <img className='share' src = {share}/>
                 </div>

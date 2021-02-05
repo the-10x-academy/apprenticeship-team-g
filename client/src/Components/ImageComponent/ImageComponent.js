@@ -6,7 +6,7 @@ function ImageComponent(props) {
   const imageUrl = "./images/10x.jpg";
   return (
     <div className="imageparent">
-      <img src={imageUrl} className="imagecompo" />
+      <img src={`http://localhost:9000/${props.img}`} className="imagecompo" />
     </div>
   );
 }
