@@ -53,3 +53,20 @@ module.exports.getPostById = (req, res, next) => {
       });
     });
 };
+
+module.exports.addLike = async function(req,res){
+  console.log(req.body.id)
+  try{
+      let doc = await Post.findOne({_id:req.body.id})
+      console.log(doc)
+      doc.likes += 1
+      doc.save()
+      res.json({
+          message:'Sucessfull'
+      })
+      
+  }catch(error){
+      console.log(error)
+  }
+  
+}
