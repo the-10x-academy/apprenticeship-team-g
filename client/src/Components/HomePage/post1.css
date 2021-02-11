@@ -30,6 +30,7 @@ width: 32px;
 height: 32px;
 /* background: transparent url('images/heart.png') 0% 0% no-repeat padding-box; */
 opacity: 1;
+fill: red;
 }
 .share{
     top: 716px;

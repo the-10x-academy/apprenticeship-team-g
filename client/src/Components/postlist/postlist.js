@@ -25,8 +25,8 @@ class PostList extends React.Component{
         if(this.state.post)
         {
             ele = this.state.post.map((item) => {
-                console.log(item.content);
-                return <Post date={item.createdAt} owner={item.owner} location={item.location} caption = {item.caption} likes={item.likes} img={item.content} />
+                console.log(item._id,'item');
+                return <Post id={item._id}date={item.createdAt} owner={item.owner} location={item.location} caption = {item.caption} likes={item.likes} img={item.content} />
             })
 
         }
