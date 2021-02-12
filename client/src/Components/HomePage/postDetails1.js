@@ -17,10 +17,11 @@ class PostDetails extends React.Component{
     likesHandler = async () => {
         console.log(this.state.liked)
         if (!this.state.liked){
-            console.log('liked',this.state.id)
+            
             await axios.post('http://localhost:9000/api/like',{id:this.state.id});
             this.setState({
-                liked:true
+                liked:true,
+                likes:this.state.likes+1
             })
         }
         

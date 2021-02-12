@@ -1,9 +1,9 @@
-import logo from "../../logo.svg";
+
 import "./HomePage.css";
 import mainImage from '../../img/mainImage.png'
 import React from 'react';
-import PostList from '../postlist/postlist'
-import Header from '../../header'
+
+import { Link } from "react-router-dom";
 class HomePage extends React.Component{
 	constructor(props){
 		super(props)
@@ -19,26 +19,21 @@ class HomePage extends React.Component{
 	}
 	render(){
 		let ele = null
-		if (!this.state.enter){
-			ele = <div class='entry-main'>
+		
+			return <div className='entry-main'>
+				
 			<div className='entry-container'>
 				<img src={mainImage} />
 				<div className='entry-name'>
 					<p className='entry-title'>10x Team 7</p>
+					<Link to='/postList'>
 					<button onClick={this.toggleDisplay}>Enter</button>
+					</Link>
+					
 				</div>	
 			</div>
 		</div>
-		}
-		else{
-			ele = <div>
-					<Header />
-					<PostList />
-				</div>
-		}
-		return ele
-		
-	}
+		}	
 }
 
 export default HomePage;

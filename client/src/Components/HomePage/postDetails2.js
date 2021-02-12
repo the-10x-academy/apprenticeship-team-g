@@ -14,7 +14,7 @@ class PostDetailsTop extends React.Component{
             
             <div className='container'>
                 <p className='name'>{this.state.name}</p>
-                <p className='location'>{this.state.location}</p>
+                <p className='location2'>{this.state.location}</p>
             </div>
             <div> 
                 <img className='more_icon' src = {more_icon} />

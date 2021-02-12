@@ -1,41 +1,78 @@
 const Post = require("../model/Post");
-
+const path = require('path')
 // create new post
 module.exports.createPost = (req, res, next) => {
-  const post = new Post({
-    author: req.body.author,
-    location: req.body.location,
-    imageUrl: req.body.imageUrl,
-    // createdAt: req.body.createdAt,
-    numberOfLikes: req.body.numberOfLikes,
-    description: req.body.description,
-  });
-  post
-    .save()
-    .then(() => {
-      res.status(201).json({
-        message: "Post saved successfully!",
-      });
-    })
-    .catch((error) => {
-      res.status(400).json({
-        error: error,
-      });
-    });
+  console.log('hello');
+  Post.uploadedAvatar(req,res,function(err){
+    console.log('inside function')
+    console.log(req.file)
+        if (err){
+            console.log(err);
+        }
+        console.log(req.body,'----------------//////////////////////////////body')
+        console.log(req.file)
+        let at = Date.now()
+        Post.create({
+            owner:req.body.owner,
+            likes:0,
+            content:path.join(Post.avatarPath + '/' + req.file.filename),
+            caption:req.body.caption,
+            location:req.body.location,
+            date: new Date().toDateString().toString(),
+            at:at
+          
+        },function(err,data){
+            if (err){
+                console.log(err);
+            }
+            
+            res.send({
+                owner:req.body.owner,
+                likes:0,
+                content:path.join(Post.POST_PATH + '/' + req.file.filename),
+                caption:req.body.caption,
+                location:req.body.location,
+                date:new Date().toDateString().toString(),
+                id:data._id,
+                at:at
+                
+                
+            });
+        })
+  })
+  // const post = new Post({
+  //   author: req.body.author,
+  //   location: req.body.location,
+  //   imageUrl: req.body.imageUrl,
+  //   // createdAt: req.body.createdAt,
+  //   numberOfLikes: req.body.numberOfLikes,
+  //   description: req.body.description,
+  // });
+  // post
+  //   .save()
+  //   .then(() => {
+  //     res.status(201).json({
+  //       message: "Post saved successfully!",
+  //     });
+  //   })
+  //   .catch((error) => {
+  //     res.status(400).json({
+  //       error: error,
+  //     });
+  //   });
 };
 
 // get all post list
 module.exports.getPosts = (req, res, next) => {
-  Post.find()
-    .then((posts) => {
-      console.log(posts)
-      res.status(200).json(posts);
-    })
-    .catch((error) => {
-      res.status(400).json({
-        error: error,
-      });
-    });
+  Post.find({})
+  .sort({'at':-1})
+  .exec(function(err,data){
+    if (err){
+      console.log(err)
+      res.json(500,{'message':'error'})
+    }
+    res.json(200,data)
+  })
 };
 
 // get post by id
