@@ -1,5 +1,7 @@
 import React from "react";
 import "./uploadComponent.css";
+import Header from '../header';
+import { Link } from "react-router-dom";
 class uploadComponent extends React.Component {
 	constructor(props) {
 		super(props);
@@ -26,19 +28,24 @@ class uploadComponent extends React.Component {
 			this.setState({ fileName: name[name.length - 1] });
 		}
 	}
-	async handleSubmit(event) {
+	handleSubmit(event) {
 		var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/;
 		if (allowedExtensions.exec(this.fileInput.current.files[0].name)) {
+			console.log('in the clicked')
 			const formData = new FormData();
-			formData.append("author", this.state.author);
+			formData.append("owner", this.state.author);
 			formData.append("location", this.state.location);
-			formData.append("description", this.state.description);
-			formData.append("image", this.fileInput.current.files[0]);
-			await fetch("http://localhost:9000/posts", {
+			formData.append("caption", this.state.description);
+			formData.append("content", this.fileInput.current.files[0]);
+			fetch("http://localhost:9000/api/post", {
 				method: "POST",
 				body: formData,
 			})
-				.then((response) => response.json())
+			.then((response) => response.json())
+			.then(()=>{
+				this.props.toggleDisplay()
+			})
+			
 				.catch((error) => {
 					console.error("Error:", error);
 				});
@@ -51,12 +58,13 @@ class uploadComponent extends React.Component {
 		return (
 			
 				
-				<div className="box">
+					<div className="box">
+					
 					<form onSubmit={this.handleSubmit}>
 						<div className='line line1'> 
 							<input
 								type="text"
-								disabled="true"
+								disabled={true}
 								className="file"
 								placeholder=" No file chosen"
 								value={this.state.fileName}
@@ -114,7 +122,9 @@ class uploadComponent extends React.Component {
 						</div>
 						
 						<div className='line line4'>
-							<input
+							
+							
+								<input
 								type="submit"
 								value="Post"
 								className="post"
@@ -124,11 +134,19 @@ class uploadComponent extends React.Component {
 									!this.state.description ||
 									!this.state.fileName
 								}
+								
 							/>
+							
+							
+							
+							
+							
 						</div>
 						
 					</form>
 				</div>
+				
+				
 			
 		);
 	}

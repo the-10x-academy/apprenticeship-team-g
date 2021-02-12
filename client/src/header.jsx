@@ -2,8 +2,8 @@ import React from "react";
 import "./header.css";
 import img from "./img/icon.png"
 import img1 from "./img/camera.png"
-
-const Header = () => (
+import { Link } from "react-router-dom";
+const Header = (props) => (
       <div className='biggest'>
         <div className="parentDiv">
         <div className="logoAndText">
@@ -11,7 +11,12 @@ const Header = () => (
               <p className="instaclone"> Instaclone</p>
           </div>
           <div className="cameraIcon">
-            <img className="camera" src={img1} alt="cameralogo" className='img'/>
+                {/* <Link to='/upload'> */}
+                <img className="camera" src={img1} alt="cameralogo" className='img' onClick={props.toggleDisplay}/>
+                {/* </Link> */}
+              
+           
+            
           </div>
         </div>
           

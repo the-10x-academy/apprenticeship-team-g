@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const multer = require('multer');
-const POST_PATH = '/uploads/images'
+const path = require('path')
+const POST_PATH = path.join('uploads','images')
 
 const postSchema = mongoose.Schema({
     owner:{
@@ -27,14 +28,15 @@ const postSchema = mongoose.Schema({
         type:String,
         required:true
     }
+   
 
 })
 let storage = multer.diskStorage({
     destination: function (req, file, cb) {
-      cb(null, POST_PATH)
+      cb(null, path.join(__dirname,'..',POST_PATH))
     },
     filename: function (req, file, cb) {
-      cb(null, file.fieldname + '-' + Date.now())
+      cb(null, file.fieldname + '-' + Date.now()+'.jpg')
     }
   })
 //statics
