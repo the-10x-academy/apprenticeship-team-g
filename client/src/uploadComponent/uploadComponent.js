@@ -42,10 +42,10 @@ class uploadComponent extends React.Component {
 				body: formData,
 			})
 			.then((response) => response.json())
-			.then((res) => {
-
-				this.props.addNewPost(res)
+			.then(()=>{
+				this.props.toggleDisplay()
 			})
+			
 				.catch((error) => {
 					console.error("Error:", error);
 				});
@@ -123,7 +123,8 @@ class uploadComponent extends React.Component {
 						
 						<div className='line line4'>
 							
-							<input
+							
+								<input
 								type="submit"
 								value="Post"
 								className="post"
@@ -135,6 +136,9 @@ class uploadComponent extends React.Component {
 								}
 								
 							/>
+							
+							
+							
 							
 							
 						</div>

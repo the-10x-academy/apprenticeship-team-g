@@ -7,16 +7,9 @@ import { Link } from "react-router-dom";
 class HomePage extends React.Component{
 	constructor(props){
 		super(props)
-		this.state={
-			enter:false
-		}
+		
 	}
-	toggleDisplay = () => {
-		console.log('clckedc')
-		this.setState({
-			enter:true
-		})
-	}
+	
 	render(){
 		let ele = null
 		
@@ -27,7 +20,7 @@ class HomePage extends React.Component{
 				<div className='entry-name'>
 					<p className='entry-title'>10x Team 7</p>
 					<Link to='/postList'>
-					<button onClick={this.toggleDisplay}>Enter</button>
+					<button >Enter</button>
 					</Link>
 					
 				</div>	

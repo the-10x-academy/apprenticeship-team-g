@@ -27,11 +27,8 @@ const postSchema = mongoose.Schema({
     caption:{
         type:String,
         required:true
-    },
-    at:{
-        type:Number,
-        required:true
     }
+   
 
 })
 let storage = multer.diskStorage({

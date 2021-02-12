@@ -2,16 +2,15 @@ const Post = require("../model/Post");
 const path = require('path')
 // create new post
 module.exports.createPost = (req, res, next) => {
-  console.log('hello');
+  
   Post.uploadedAvatar(req,res,function(err){
-    console.log('inside function')
+    
     console.log(req.file)
         if (err){
             console.log(err);
         }
-        console.log(req.body,'----------------//////////////////////////////body')
-        console.log(req.file)
-        let at = Date.now()
+        
+        
         Post.create({
             owner:req.body.owner,
             likes:0,
@@ -19,7 +18,7 @@ module.exports.createPost = (req, res, next) => {
             caption:req.body.caption,
             location:req.body.location,
             date: new Date().toDateString().toString(),
-            at:at
+            
           
         },function(err,data){
             if (err){
@@ -34,7 +33,7 @@ module.exports.createPost = (req, res, next) => {
                 location:req.body.location,
                 date:new Date().toDateString().toString(),
                 id:data._id,
-                at:at
+                
                 
                 
             });
@@ -65,7 +64,7 @@ module.exports.createPost = (req, res, next) => {
 // get all post list
 module.exports.getPosts = (req, res, next) => {
   Post.find({})
-  .sort({'at':-1})
+  .sort({'_id':-1})
   .exec(function(err,data){
     if (err){
       console.log(err)

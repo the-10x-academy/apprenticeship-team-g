@@ -28,16 +28,7 @@ class PostList extends React.Component{
             display:!this.state.display
         })
     }
-    addNewPost = async (recPost) => {
-        let newPost = this.state.post
-        let newObj = [recPost]
-        newPost = newObj.concat(newPost)
-        this.setState({
-            post:newPost
-        })
-        this.toggleDisplay()
-
-    }
+    
     render(){
         let ele = null;
         console.log(this.state.post)
@@ -50,7 +41,7 @@ class PostList extends React.Component{
 
         }
         else{
-            ele = <Upload toggleDisplay={this.toggleDisplay} addNewPost={this.addNewPost}/>
+            ele = <Upload toggleDisplay={this.toggleDisplay} />
         }
         return <div className='postlist-container'>
             <Header toggleDisplay={this.toggleDisplay}/>
