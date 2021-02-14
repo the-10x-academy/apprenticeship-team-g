@@ -13,10 +13,7 @@ const Header = (props) => (
           <div className="cameraIcon">
                 {/* <Link to='/upload'> */}
                 <img className="camera" src={img1} alt="cameralogo" className='img' onClick={props.toggleDisplay}/>
-                {/* </Link> */}
-              
-           
-            
+                {/* </Link> */} 
           </div>
         </div>
           

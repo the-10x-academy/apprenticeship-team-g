@@ -43,7 +43,7 @@ class PostDetails extends React.Component{
                 </div>
             </div>
             <div className='like'>
-                <p>{this.state.likes}</p>
+                <p>{this.state.likes} likes</p>
             </div>
             <div className='caption'>
                 <p>{this.state.caption}</p>

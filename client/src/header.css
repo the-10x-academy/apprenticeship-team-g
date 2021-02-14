@@ -9,6 +9,9 @@
      position: fixed;
     top:0;
     background-color: white;
+    height:6rem;
+    display: flex;
+    align-items: center;
  }
  .parentDiv {
      display: flex;
@@ -29,7 +32,7 @@
 .instaclone {
     margin-top: 0px;
     margin-bottom: 0px;
-    padding-top: 12px;
+    padding-top: 4px;
     font:normal normal 48px/60px Palatino;
     letter-spacing: 0px;
     color: #006238;

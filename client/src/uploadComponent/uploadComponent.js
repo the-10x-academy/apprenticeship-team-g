@@ -10,11 +10,29 @@ class uploadComponent extends React.Component {
 			location: "",
 			author: "",
 			fileName: "",
+			allFilled:false
 		};
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleClick = this.handleClick.bind(this);
 		this.fileInput = React.createRef();
+	}
+	checkFilled = () => {
+		console.log(this.state.description ,'1')
+		console.log(this.state.location,'2')
+		console.log(this.state.author,'3')
+		console.log(this.state.fileName,'4')
+		if (this.state.description 
+			&& this.state.location 
+			&& this.state.author
+			&& this.state.fileName
+			&& !this.state.allFilled)
+			{
+				this.setState({
+					allFilled:true
+				})
+			}
+			
 	}
 	handleClick(event) {
 		event.preventDefault();
@@ -27,6 +45,7 @@ class uploadComponent extends React.Component {
 			let name = event.target.value.split("\\");
 			this.setState({ fileName: name[name.length - 1] });
 		}
+		
 	}
 	handleSubmit(event) {
 		var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/;
@@ -55,6 +74,8 @@ class uploadComponent extends React.Component {
 		}
 	}
 	render() {
+		this.checkFilled();
+		console.log(this.state.allFilled)
 		return (
 			
 				
@@ -134,6 +155,7 @@ class uploadComponent extends React.Component {
 									!this.state.description ||
 									!this.state.fileName
 								}
+								style={this.state.allFilled ? {backgroundColor:'#1833db',color:'white'} : {backgroundColor:'#f0f0f0'}}
 								
 							/>
 							
